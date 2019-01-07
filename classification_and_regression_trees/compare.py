@@ -6,8 +6,8 @@ from model_tree import linear_regression
 
 def get_corrcoef(X, Y):
     # X Y 的协方差
-    cov = np.mean(X*Y) - np.mean(X)*np.mean(Y)
-    return cov/(np.var(X)*np.var(Y))**0.5
+    cov = np.mean(X*Y) - np.mean(X)*np.mean(Y)  # 求平均值
+    return cov/(np.var(X)*np.var(Y))**0.5  
 
 if '__main__' == __name__:
     # 加载数据
@@ -16,7 +16,7 @@ if '__main__' == __name__:
 
     dataset_test = np.matrix(data_test)
     m, n = dataset_test.shape
-    testset = np.ones((m, n+1))
+    testset = np.ones((m, n+1))  #返回m行，n+1列的1.0
     testset[:, 1:] = dataset_test
     X_test, y_test = testset[:, :-1], testset[:, -1]
 
